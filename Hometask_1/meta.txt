@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: smikheev
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh-authorized-keys:
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCnLXoDfmcqTHY8CUd84lMHLyeAaGqfsqffK99A8aWWJhGGCZDblNMmpIxrroftxAo/MzLphCFGFq2PDZaIwOu+dAuw5qAn/WptrUjkW/lIfGerJeJyJBBSysLSTf5g69Zz2Wnp8lXIY9RJf0aHKujQ07lSdf4UtviTFIdx7bvDJm8qw/EkzjaCPYHmM4+7i8A0s4HLI17VXREq2FC4u9A2Y9MeIt/2NfPn46jw0H2Lv6uaj3HKmEsJe9srYtL+KhncFXsftcv9o0Xb2vyBhRYixbEBS3xVR1bwOdKKr4CBtsJoztQuO0Gp9H4tL8uOO+HfrhoXQp0Za4luJBVC6MDPGivDTNuTK7x0gaf+vqaPc633+6OPQMMjh5b1S65rWiEhQVrP+wd7eiblMWZHk6YJiGSDW84xAcTuAVKQn7GWxZFcyeE/HzTReX9fO/P84u5EaOy57LloL5Zs/R8uQr93khW4eT2TTz72F7w6qtNDXl4hOWbbrd5O7GxWofwZvuHwLzveozodPgwpWGWJq7NWTV2DJ6fyCmba/MkVacV8XEl7+p8KG6DLqJQknjysUW3tCl3mQLn4v0z1CtCi6fcamPvzoC1dilkzR/2bld4lr5s3fzZBoJ/BZoQyvYVbV/FrhJqZAU/o5T0MT3IWCIYmzg2jN5kkqZ4x9vWPheQETw== smikheev@MacBook-Air-Sergei.local
