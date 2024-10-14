@@ -50,27 +50,26 @@ resource "proxmox_vm_qemu" "test_server" {
       }
     }
   }
-  # if you want two NICs, just copy this whole network section and duplicate it
+  # Настраиваем использование в ProxMox сетевого моста vmbr0, который подключен к mgmt сети кластера
   network {
     model = "virtio"
     bridge = "vmbr0"
     firewall = false
     link_down = false 
   }
-  # not sure exactly what this is for. presumably something about MAC addresses and ignore network changes during the life of the VM
   lifecycle {
     ignore_changes = [
       network,
     ]
   }
   
-  # Specify the boot order
+  # Опеределяем порядок загрузки
   boot = "order=ide2;scsi0"
 
-  # New VMs should have IP addresses 192.168.101.23x (192.168.101.231 and etc.)
+  # Настраиваем IP адреса VM из пула адресов mgmt подсети 192.168.101.231 и 192.168.101.232
   ipconfig0 = "ip=192.168.101.23${count.index + 1}/24,gw=192.168.101.1"
   
-  # sshkeys set using variables. the variable contains the text of the key.
+  # Настраиваем креды пользователя и ssh ключ
   ciuser="smikheev"
   cipassword = "qwerty123"
   sshkeys = <<EOF
