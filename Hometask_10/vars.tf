@@ -22,10 +22,12 @@ variable "api_proxmox_address" {
     default = "https://192.168.101.121:8006/api2/json"
 }
 
+# Определяем наименование токена для подключения к API ProxMox
 variable "api_token_id" {
     default = "deploy_tf@pam!deploy_token_id"
 }
 
+# Задаем секретный ключ токена для подключения к API ProxMox
 variable "api_token_secret" {
     default = "98d9bb3f-7a41-4547-a9f3-379e5d103993"
 }
