@@ -7,6 +7,7 @@ terraform {
   }
 }
 
+# Настраиваем подключение к ProxMox с помощью API token
 provider "proxmox" {
   pm_api_url = var.api_proxmox_address
   pm_api_token_id = var.api_token_id
