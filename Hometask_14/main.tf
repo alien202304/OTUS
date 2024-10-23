@@ -13,7 +13,6 @@ resource "virtualbox_vm" "ceph_nodes" {
 
   cpus = 2
   memory = "4096 MiB"
-  scsihw = "virtio-scsi-single"
   bootdisk = "scsi0"
 
   # Setup disks
