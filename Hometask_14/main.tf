@@ -47,7 +47,7 @@ resource "virtualbox_vm" "ceph_nodes" {
     type = "bridge"
     host_interface = "vboxnet1"
   }
-  network_adapter {
+  network_adapter_2 {
     type = "hostonly"
     host_interface = "vboxnet2"
   }
@@ -62,7 +62,7 @@ resource "virtualbox_vm" "ceph_nodes" {
   }
 
   output "IPAddr_2" {
-  value = element(virtualbox_vm.node.*.network_adapter.0.ipv4_address, 2)
+  value = element(virtualbox_vm.node.*.network_adapter_2.0.ipv4_address, 2)
   }
   
   # Настраиваем креды пользователя и ssh ключ
