@@ -9,7 +9,7 @@ terraform {
 resource "virtualbox_vm" "ceph_nodes" {
   count = 3 # Создаем 3 ноды Ceph
   name = "ceph0${count.index + 1}"
-  image = "/User/smikheev/Downloads/28ded8c9-002f-46ec-b9f3-1d7d74d147ee" # Debian 12 image
+  image = "/User/smikheev/Downloads/28ded8c9-002f-46ec-b9f3-1d7d74d147ee" # Debian 12 image from Vagrant Boxes
 
   cpus = 2
   memory = "4096 MiB"
