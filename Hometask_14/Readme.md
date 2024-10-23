@@ -86,4 +86,24 @@ ceph_conf_overrides:
 
 ```
 
+Готовим для запуска установки файл sire.yml
 
+```# cp site.yml.sample site.yml```
+
+На всех трех хостах правим файл /etc/hosts:
+
+```
+127.0.0.1       localhost
+192.168.101.131 ceph01
+192.168.101.132 ceph02
+192.168.101.133 ceph03
+
+10.10.201.131   ceph01
+10.10.201.132   ceph02
+10.10.201.133   ceph03
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+```
