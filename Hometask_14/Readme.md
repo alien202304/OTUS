@@ -107,3 +107,15 @@ ceph_conf_overrides:
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
+Запускае установку кластера Ceph ищ плейбук:
+
+```
+# cd ~/ceph-ansible/
+# ansible-playbook -u root -k -i inventory/hosts site.yml -b --diff
+```
+
+После разворачивания кластера проверяем его статус:
+
+```
+# ceph status
+```
