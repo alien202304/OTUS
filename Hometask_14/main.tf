@@ -11,10 +11,8 @@ resource "virtualbox_vm" "ceph_nodes" {
   name = "ceph0${count.index + 1}"
   image = "/User/smikheev/Downloads/28ded8c9-002f-46ec-b9f3-1d7d74d147ee" # Debian 12 image
 
-  cores = 2
-  sockets = 1
-  cpu = "host"
-  memory = 4096
+  cpus = 2
+  memory = "4096 MiB"
   scsihw = "virtio-scsi-single"
   bootdisk = "scsi0"
 
