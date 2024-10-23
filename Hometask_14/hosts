@@ -1,0 +1,24 @@
+[mons]
+ceph01 monitor_address=10.10.201.131
+ceph02 monitor_address=10.10.201.132
+ceph03 monitor_address=10.10.201.133
+
+[osds]
+ceph01
+ceph02
+ceph03
+
+[mgrs]
+ceph01
+ceph02
+ceph03
+
+[mdss]
+ceph01
+ceph02
+ceph03
+
+[monitoring]
+ceph01
+ceph02
+ceph03
