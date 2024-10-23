@@ -57,8 +57,13 @@ resource "virtualbox_vm" "ceph_nodes" {
   boot = "order=scsi0"
 
   # Настраиваем IP адреса VM из пула адресов mgmt подсети 192.168.101.131, 192.168.101.132 и 192.168.101.133
-  ipconfig0 = "ip=192.168.101.13${count.index + 1}/24,gw=192.168.101.1"
-  ipconfig1 = "ip=10.10.201.13${count.index + 1}/24,gw=10.10.201.1"
+  output "IPAddr" {
+  value = element(virtualbox_vm.node.*.network_adapter.0.ipv4_address, 1)
+  }
+
+  output "IPAddr_2" {
+  value = element(virtualbox_vm.node.*.network_adapter.0.ipv4_address, 2)
+  }
   
   # Настраиваем креды пользователя и ssh ключ
   ciuser="root"
