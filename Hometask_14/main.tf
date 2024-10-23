@@ -6,9 +6,10 @@ terraform {
   }
 }
 
-resource "virtualbox" "ceph_nodes" {
+resource "virtualbox_vm" "ceph_nodes" {
   count = 3 # Создаем 3 ноды Ceph
   name = "ceph0${count.index + 1}"
+  image = "/User/smikheev/Downloads/28ded8c9-002f-46ec-b9f3-1d7d74d147ee" # Debian 12 image
 
   cores = 2
   sockets = 1
@@ -19,18 +20,10 @@ resource "virtualbox" "ceph_nodes" {
 
   # Setup disks
   disks {
-    ide {
-      ide2 {
-        cloudinit {
-          storage = var.storage_name
-        }
-      }
-    }
     scsi {
       scsi0 {
         disk {
           size      = "15G"
-          storage   = var.storage_name
         }
       }
     }
@@ -38,7 +31,6 @@ resource "virtualbox" "ceph_nodes" {
       scsi1 {
         disk {
           size      = "50G"
-          storage   = var.storage_name
         }
       }
     }
@@ -46,7 +38,6 @@ resource "virtualbox" "ceph_nodes" {
       scsi2 {
         disk {
           size      = "50G"
-          storage   = var.storage_name
         }
       }
     }
