@@ -56,7 +56,7 @@ resource "virtualbox_vm" "ceph_nodes" {
   # Опеределяем порядок загрузки
   boot = "order=scsi0"
 
-  # Настраиваем IP адреса VM из пула адресов mgmt подсети 192.168.101.131, 192.168.101.132 и 192.168.101.133
+  # Настраиваем IP адреса VM
   output "IPAddr" {
   value = element(virtualbox_vm.node.*.network_adapter.0.ipv4_address, 1)
   }
