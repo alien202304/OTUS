@@ -86,7 +86,7 @@ ceph_conf_overrides:
 
 ```
 
-Готовим для запуска установки файл sire.yml
+Готовим для запуска установки файл site.yml
 
 ```# cp site.yml.sample site.yml```
 
