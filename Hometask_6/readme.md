@@ -196,7 +196,7 @@ vrrp_instance my-db {
         auth_pass passwd
     }
     virtual_ipaddress {
-        192.168.101.185
+        192.168.101.195
     }
     track_script {
     check_haproxy
@@ -227,7 +227,7 @@ vrrp_instance my-db {
         auth_pass passwd
     }
     virtual_ipaddress {
-        192.168.101.185
+        192.168.101.195
     }
     track_script {
     check_haproxy
@@ -258,7 +258,7 @@ vrrp_instance my-db {
         auth_pass passwd
     }
     virtual_ipaddress {
-        192.168.101.185
+        192.168.101.195
     }
     track_script {
     check_haproxy
