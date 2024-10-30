@@ -87,4 +87,15 @@ ETCD_ADVERTISE_CLIENT_URLS="http://192.168.101.193:2379"
 
 Результаты проверки в соответствующих файлах приложены
 
+# Установка PostgreSQL #
+Устанавливаем Percona для PostgreSQL 
+
+```
+sudo apt-get update -y; sudo apt-get install -y wget gnupg2 lsb-release curl
+wget https://repo.percona.com/apt/percona-release_latest.generic_all.deb
+sudo dpkg -i percona-release_latest.generic_all.deb
+sudo apt-get update
+sudo percona-release setup ppg-12
+sudo apt-get install percona-postgresql-12
+```
 
