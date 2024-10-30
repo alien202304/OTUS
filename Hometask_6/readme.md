@@ -71,7 +71,7 @@ ETCD_LISTEN_PEER_URLS="http://192.168.101.193:2380"
 ETCD_LISTEN_CLIENT_URLS="http://192.168.101.193:2379,http://localhost:2379"
 ETCD_ADVERTISE_CLIENT_URLS="http://192.168.101.193:2379"
 ```
-### Добавляем к кластеру, развернутому на node1 два узла node2 и node3 ###
+### Добавляем к кластеру etcd, развернутому на node1, два узла: node2 и node3 ###
 
 ```$ sudo etcdctl member add node2 http://192.168.101.192:2380```
 
