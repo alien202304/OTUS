@@ -166,3 +166,7 @@ listen standbys
     server node2 node2:5432 maxconn 100 check port 8008
     server node3 node3:5432 maxconn 100 check port 8008
 ```
+
+### Добавляем keepalived на каждый узел, чтобы можно было настроить виртуальный адрес vrrp ###
+
+```$ sudo apt install keepalived```
