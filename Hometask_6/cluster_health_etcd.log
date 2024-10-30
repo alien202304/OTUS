@@ -1,0 +1,4 @@
+member 56cbcda363ad334 is healthy: got healthy result from http://192.168.101.191:2379
+member 50c58d234d3738e8 is healthy: got healthy result from http://192.168.101.192:2379
+member b33967b7bcc1f3e6 is healthy: got healthy result from http://192.168.101.193:2379
+cluster is healthy
