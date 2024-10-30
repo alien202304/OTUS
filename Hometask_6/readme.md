@@ -100,4 +100,11 @@ sudo apt-get update
 sudo percona-release setup ppg-12
 sudo apt-get install percona-postgresql-12
 ```
+Установка производится на всех 3 узлах кластера.
+
+# Установка Patroni #
+
+```$ sudo apt-get install percona-patroni```
+
+Конфигурационный файл ```/etc/patroni/config.yml``` для узла node1 приведен в файле config.yml
 
