@@ -37,7 +37,7 @@ $ sudo vim /etc/hosts
 
 ### Установка необходимых пакетов с помощью команды ###
 
-```$ sudo apt-get install etcd```
+```$ sudo apt install etcd```
 
 ### Настройка конфигурационных файлов ###
 
@@ -111,7 +111,7 @@ sudo apt-get install percona-postgresql-12
 
 # Установка Patroni #
 
-```$ sudo apt-get install percona-patroni```
+```$ sudo apt install percona-patroni```
 
 Конфигурационный файл ```/etc/patroni/config.yml``` для узла node1 приведен в файле config.yml
 
@@ -123,7 +123,7 @@ sudo apt-get install percona-postgresql-12
   
 Для установки haproxy на всех трех узлах выполняем:
 
-```$ sudo apt-get install haproxy```
+```$ sudo apt install haproxy```
 
 ### Настраиваем основной файл конфигурации следующим образом: ###
 
