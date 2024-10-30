@@ -1,6 +1,7 @@
 # Создание отказоустойчивого кластера PostgreSQL + Patroni #
 ### Схема реализации отказойстойчивого кластера PostgreSQL приведена на рисунке ниже ###
-![Схема PostgreSQL_Patroni_cluster](https://github.com/user-attachments/assets/f864cf5b-fab0-47ac-b7ff-48015cb46116)
+![Схема PostgreSQL_Patroni_cluster](https://github.com/user-attachments/assets/b2dfcd83-c23f-4458-b3fa-abfecf1cc105)
+
 
 ### Исходные данные ###
 Для создания кластера использованы три VM под управлением Ubuntu 20.04
