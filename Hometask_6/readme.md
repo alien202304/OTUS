@@ -170,3 +170,99 @@ listen standbys
 ### Добавляем keepalived на каждый узел, чтобы можно было настроить виртуальный адрес vrrp ###
 
 ```$ sudo apt install keepalived```
+
+Добвляем на каждый узед конфигурационный файл для keepalived ```/etc/keepalived/keepalived.conf```
+
+```
+####  node1 #################
+global_defs {
+  router_id lb01
+}
+
+vrrp_script check_haproxy {
+  script "/usr/bin/systemctl is-active --quiet haproxy"
+  interval 2
+  weight 2
+}
+
+vrrp_instance my-db {
+    state MASTER
+    interface eth0
+    virtual_router_id 111
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass passwd
+    }
+    virtual_ipaddress {
+        192.168.101.185
+    }
+    track_script {
+    check_haproxy
+  }
+}
+```
+
+```
+####  node2 #################
+global_defs {
+  router_id lb02
+}
+
+vrrp_script check_haproxy {
+  script "/usr/bin/systemctl is-active --quiet haproxy"
+  interval 2
+  weight 2
+}
+
+vrrp_instance my-db {
+    state BACKUP
+    interface eth0
+    virtual_router_id 111
+    priority 99
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass passwd
+    }
+    virtual_ipaddress {
+        192.168.101.185
+    }
+    track_script {
+    check_haproxy
+  }
+}
+```
+
+```
+####  node3 #################
+global_defs {
+  router_id lb03
+}
+
+vrrp_script check_haproxy {
+  script "/usr/bin/systemctl is-active --quiet haproxy"
+  interval 2
+  weight 2
+}
+
+vrrp_instance my-db {
+    state BACKUP
+    interface eth0
+    virtual_router_id 111
+    priority 98
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass passwd
+    }
+    virtual_ipaddress {
+        192.168.101.185
+    }
+    track_script {
+    check_haproxy
+  }
+}
+```
+В настройках узлов выставляем разные приоритеты ```priority``` для node1 = 100, для node2 = 99, для node3 = 98
