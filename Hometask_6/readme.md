@@ -113,4 +113,49 @@ sudo apt-get install percona-postgresql-12
 Для разделения запросов на чтение и запись будем использовать два разных порта:
 + Запросы на запись (Writes)  → 5000
 + Запросы на чтение (Reads)   → 5001
+  
+Для установки haproxy на всех трех узлах выполняем:
 
+```$ sudo apt-get install haproxy```
+
+### Настраиваем основной файл конфигурации следующим образом: ###
+
+```
+$ vim /etc/haproxy/haproxy.cfg
+global
+    maxconn 100
+
+defaults
+    log    global
+    mode    tcp
+    retries 2
+    timeout client 30m
+    timeout connect 4s
+    timeout server 30m
+    timeout check 5s
+
+listen stats
+    mode http
+    bind *:7000
+    stats enable
+    stats uri /
+
+listen primary
+    bind *:5000
+    option httpchk OPTIONS /master
+    http-check expect status 200
+    default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+    server node1 node1:5432 maxconn 100 check port 8008
+    server node2 node2:5432 maxconn 100 check port 8008
+    server node3 node3:5432 maxconn 100 check port 8008
+
+listen standbys
+    balance roundrobin
+    bind *:5001
+    option httpchk OPTIONS /replica
+    http-check expect status 200
+    default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+    server node1 node1:5432 maxconn 100 check port 8008
+    server node2 node2:5432 maxconn 100 check port 8008
+    server node3 node3:5432 maxconn 100 check port 8008
+```
