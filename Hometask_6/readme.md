@@ -15,8 +15,8 @@ vIP 192.168.101.195
 На всех трех узлах выполняем установку минимально необходимых пакетов:
 
 ```
-apt update && apt upgrade -y
-apt install htop sudo vim -y
+$ sudo apt update && apt upgrade -y
+$ sudo apt install htop sudo vim -y
 ```
 
 # Создание etcd кластера #
