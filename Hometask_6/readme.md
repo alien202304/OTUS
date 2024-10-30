@@ -171,7 +171,9 @@ listen standbys
 
 ```$ sudo apt install keepalived```
 
-Добвляем на каждый узед конфигурационный файл для keepalived ```/etc/keepalived/keepalived.conf```
+Добвляем на каждый узел конфигурационный файл для keepalived ```/etc/keepalived/keepalived.conf```
+
+```$ sudo vim /etc/keepalived/keepalived.conf```
 
 ```
 ####  node1 #################
